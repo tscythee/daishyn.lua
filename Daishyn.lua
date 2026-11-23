@@ -1,6 +1,3 @@
---[[ Daishyn - Volleyball Legends
-     Tudo visual e local (só você vê). Pílula ou tecla do painel abre/fecha. Erros: console (F9), prefixo [Daishyn]. ]]
-
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
 
