@@ -1,37 +1,3 @@
---[[
-    ScyFe Auto Rollback (v3)
-    Jogo: Volleyball Legends
-
-    Gira estilos OU habilidades ate vir um dos alvos da lista.
-      REJOIN   = reentra no jogo guardando o que voce ja pegou (salva).
-      ROLLBACK = reentra desfazendo as acoes (restaura os spins).
-
-    Fluxo: gira ate vir um alvo -> REJOIN -> confirma que foi salvo -> protege o slot
-    -> continua atras dos que faltam. So da ROLLBACK quando o limite de spins acaba
-    sem vir nenhum alvo da lista.
-
-    Use na pasta autoexec do injetor. O estado e as configuracoes ficam em
-    workspace/ScyFeAutoRollback/config_v3.json e sobrevivem a rejoin/rollback.
-
-    Configuracao opcional antes da execucao (sobrescreve o que foi salvo):
-        getgenv().ScyFeAutoRollbackConfig = {
-            mode = "Style",                       -- "Style" ou "Ability"
-            targetStyles = { "Kijo", "Tso" },     -- aceita nomes fora da lista
-            targetAbilities = { "Shield Breaker" },
-            spinType = "Lucky", abilityType = "Normal",
-            slotMode = "Manual", slots = { "1", "3" },   -- "Auto", "Manual" ou "Atual"
-            spinsPerCycle = 10, useRollback = true, rejoinOnHit = true,
-            autoStart = true, autoCodes = true,
-            codes = { "CODIGO1" },                -- opcional (senao busca na web)
-        }
-
-    API: _G.ScyFeAutoRollback.Start() / .Stop() / .Unload()
-]]
-
--- ============================================================
--- Instancia unica
--- ============================================================
-
 local INSTANCE = {}
 if _G.ScyFeAutoRollback and type(_G.ScyFeAutoRollback.Unload) == "function" then
     pcall(_G.ScyFeAutoRollback.Unload)
